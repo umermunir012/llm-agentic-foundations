@@ -66,4 +66,10 @@ This project runs **fully local** via Ollama. There are no API costs. Below is a
 
 ## Actual Performance
 
-`RUN_ME` -- after running all scripts, note observations on latency, quality differences between llama3.2:3b and llama3.2:1b, and whether the larger model justified the extra latency.
+Tested on HP ProBook (Intel Ultra 7 155U, 16 GB RAM, CPU-only inference):
+
+- **llama3.2:3b**: ~13.5s avg per RAG query, 0.58 avg keyword relevance
+- **llama3.2:1b**: ~9.5s avg per RAG query, 0.53 avg keyword relevance
+- **Prompt engineering**: role-based prompting scored highest (0.56) but took ~22s; zero-shot was fastest (~11s) but weakest (0.23)
+- **Agent runs**: 3-6 steps, ~30-90s total depending on tool count
+- **Verdict**: the 3b model's quality edge is modest (+5% relevance) for ~40% more latency. For this corpus size, the 1b model is adequate for prototyping. The 3b model is better for final results where accuracy matters more than speed.

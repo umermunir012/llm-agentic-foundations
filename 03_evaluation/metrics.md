@@ -1,6 +1,6 @@
 # Evaluation Metrics
 
-**Date:** `RUN_ME`
+**Date:** 2026-07-14
 
 ## Metrics Measured
 
@@ -11,40 +11,42 @@
 
 ## Per-Model Results
 
-### gpt-4o-mini
+### llama3.2:3b
 
 | Question | Hit Rate | Relevance | Latency (s) | Tokens |
 |----------|----------|-----------|-------------|--------|
-| q1 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q2 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q3 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q4 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q5 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q6 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q7 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q8 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| **AVG** | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
+| q1 | 1 | 0.75 | 15.03 | 539 |
+| q2 | 1 | 0.75 | 13.72 | 505 |
+| q3 | 1 | 0.00 | 17.41 | 565 |
+| q4 | 1 | 1.00 | 10.91 | 393 |
+| q5 | 1 | 0.75 | 11.56 | 451 |
+| q6 | 1 | 0.50 | 14.34 | 522 |
+| q7 | 1 | 0.50 | 11.70 | 420 |
+| q8 | 1 | 0.40 | 13.37 | 439 |
+|----------|----------|-----------|-------------|--------|
+| **AVG** | **1.00** | **0.58** | **13.50** | **479** |
 
-### gpt-4o
+### llama3.2:1b
 
 | Question | Hit Rate | Relevance | Latency (s) | Tokens |
 |----------|----------|-----------|-------------|--------|
-| q1 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q2 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q3 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q4 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q5 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q6 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q7 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| q8 | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| **AVG** | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
+| q1 | 1 | 0.75 | 12.13 | 504 |
+| q2 | 1 | 0.75 | 8.11 | 490 |
+| q3 | 1 | 0.25 | 13.91 | 645 |
+| q4 | 1 | 0.67 | 9.09 | 443 |
+| q5 | 1 | 0.75 | 6.41 | 423 |
+| q6 | 1 | 0.50 | 9.27 | 533 |
+| q7 | 1 | 0.00 | 7.86 | 430 |
+| q8 | 1 | 0.60 | 9.48 | 464 |
+|----------|----------|-----------|-------------|--------|
+| **AVG** | **1.00** | **0.53** | **9.53** | **492** |
 
 ## Model Comparison Summary
 
 | Model | Avg Hit Rate | Avg Relevance | Avg Latency (s) | Avg Tokens |
 |-------|-------------|---------------|-----------------|------------|
-| gpt-4o-mini | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
-| gpt-4o | `RUN_ME` | `RUN_ME` | `RUN_ME` | `RUN_ME` |
+| llama3.2:3b | 1.00 | 0.58 | 13.50 | 479 |
+| llama3.2:1b | 1.00 | 0.53 | 9.53 | 492 |
 
 ## How to reproduce
 
@@ -56,4 +58,8 @@ python 03_evaluation/eval.py
 
 ## Observations
 
-`RUN_ME` -- add your observations after running the evaluation.
+- **Retrieval hit rate is perfect (1.00)** for both models -- TF-IDF reliably finds the correct source document for all 8 test questions in this small corpus.
+- **3b model has slightly better relevance** (0.58 vs 0.53) -- the larger model produces answers with more expected keywords.
+- **1b model is ~30% faster** (9.53s vs 13.50s avg) -- significant for interactive use.
+- **Token counts are similar** (~479 vs ~492) -- both models generate comparable-length answers.
+- **Trade-off**: the 3b model's quality edge is modest (+0.05 relevance) for ~4s extra latency. For this corpus, the 1b model is a reasonable choice if speed matters.

@@ -1,7 +1,4 @@
-# Core LLM
-anthropic>=0.25.0
-
-# HTTP (external API tool)
+# HTTP (Ollama API + external METAR tool)
 requests>=2.31.0
 
 # Environment

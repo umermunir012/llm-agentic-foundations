@@ -17,7 +17,7 @@ Runs **fully local** using [Ollama](https://ollama.com) -- no API keys or cloud 
 ├── 01_prompt_engineering/
 │   ├── prompts.py                     # 4 prompt strategies (zero-shot, few-shot, CoT, role-based)
 │   ├── evaluate_prompts.py            # Score all strategies on a shared test set
-│   └── results.md                     # Results table (RUN_ME placeholders)
+│   └── results.md                     # Results table with measured data
 ├── 02_rag_prototype/
 │   ├── ingest.py                      # Chunk -> index -> store in vector_store.json
 │   ├── query.py                       # Retrieve -> generate answer
@@ -26,11 +26,11 @@ Runs **fully local** using [Ollama](https://ollama.com) -- no API keys or cloud 
 ├── 03_evaluation/
 │   ├── eval.py                        # Retrieval hit rate, relevance, latency, tokens
 │   ├── testset.json                   # 8 test questions with expected keywords/sources
-│   └── metrics.md                     # Results tables (RUN_ME placeholders)
+│   └── metrics.md                     # Results tables with measured data
 ├── 04_agentic/
 │   ├── tools.py                       # 3 tools: calculator, RAG lookup, METAR weather API
 │   ├── agent.py                       # Hand-rolled ReAct loop (no LangChain)
-│   └── traces.md                      # Agent trace outputs (RUN_ME placeholders)
+│   └── traces.md                      # Agent trace outputs from real runs
 └── docs/
     └── cost_performance.md            # Cost estimates and performance notes
 ```
@@ -78,9 +78,9 @@ python 04_agentic/agent.py "How many wildlife strikes happen per year and what i
 python 04_agentic/agent.py "What is the current weather at the airport where Asiana 214 crashed?"
 ```
 
-### 5. Paste Results
+### 5. View Results
 
-All `results.md`, `metrics.md`, and `traces.md` files contain `RUN_ME` placeholders. After running the scripts, paste the printed output into the corresponding markdown files.
+Results from a real run are already recorded in `results.md`, `metrics.md`, and `traces.md`. Re-run the scripts to regenerate with your own hardware.
 
 ## Configuration
 
