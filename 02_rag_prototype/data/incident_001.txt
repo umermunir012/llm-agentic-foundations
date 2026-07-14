@@ -1,0 +1,29 @@
+NTSB Report: AAR-10-01
+Date: February 12, 2009
+Location: Clarence Center, New York
+Aircraft: Colgan Air Flight 3407, Bombardier DHC-8-402
+
+Summary:
+On February 12, 2009, about 2217 eastern standard time, Colgan Air flight 3407, a
+Bombardier DHC-8-402, N200WQ, crashed into a residence in Clarence Center, New York,
+during an instrument landing system (ILS) approach to runway 23 at Buffalo-Niagara
+International Airport. The captain, first officer, two flight attendants, and 45
+passengers were killed. One person on the ground was also killed, and the occupied
+residence was destroyed.
+
+Probable Cause:
+The National Transportation Safety Board determines that the probable cause of this
+accident was the captain's inappropriate response to the activation of the stick shaker,
+which led to an aerodynamic stall from which the airplane did not recover. Contributing
+to the accident were: (1) the flight crew's failure to monitor airspeed in relation to
+the rising position of the low-speed cue, (2) the flight crew's failure to adhere to
+sterile cockpit procedures, (3) the captain's failure to effectively manage the flight,
+and (4) Colgan Air's inadequate procedures for airspeed selection and monitoring during
+approaches in icing conditions.
+
+Safety Recommendations:
+The NTSB issued numerous safety recommendations following this accident including
+requirements for pilot fatigue management, enhanced training standards for stall
+recovery, and minimum 1,500 hours total flight time for first officers at Part 121
+carriers. These recommendations led to the Airline Safety and Federal Aviation
+Administration Extension Act of 2010.

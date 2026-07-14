@@ -1,0 +1,28 @@
+NTSB Report: AAR-06-03
+Date: August 27, 2006
+Location: Lexington, Kentucky
+Aircraft: Comair Flight 5191, Bombardier CRJ-100ER
+
+Summary:
+On August 27, 2006, about 0607 eastern daylight time, Comair flight 5191, a
+Bombardier CL-600-2B19, N431CA, crashed during takeoff from Blue Grass Airport in
+Lexington, Kentucky. The flight crew mistakenly attempted to take off from runway 26,
+which was too short for the aircraft, instead of the assigned runway 22. The aircraft
+overran the end of the runway, struck a berm, went through an airport perimeter fence,
+and crashed into trees. Of the 50 persons on board, 49 were killed. The first officer
+survived with serious injuries.
+
+Probable Cause:
+The NTSB determined that the probable cause was the flight crew's failure to use
+available cues and aids to identify the correct runway for takeoff. Contributing to
+the accident was the tower controller's failure to maintain awareness of the airplane's
+position on the airport surface, the FAA's failure to require that all runway
+crossings be approved by specific ATC clearance, and the airport authority's failure
+to maintain adequate lighting on the taxiway leading to the departure runway.
+
+Safety Recommendations:
+The NTSB recommended cockpit procedures to positively confirm the correct runway
+before takeoff, including verification of the heading indicator against the assigned
+runway. Additional recommendations addressed airport surface detection equipment,
+improved runway signage, and enhanced ATC procedures for monitoring aircraft on the
+airport surface.

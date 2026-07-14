@@ -1,0 +1,8 @@
+# Core LLM
+anthropic>=0.25.0
+
+# HTTP (external API tool)
+requests>=2.31.0
+
+# Environment
+python-dotenv>=1.0.0

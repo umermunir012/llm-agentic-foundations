@@ -1,0 +1,27 @@
+NTSB Report: AAR-14-01
+Date: July 6, 2013
+Location: San Francisco, California
+Aircraft: Asiana Airlines Flight 214, Boeing 777-200ER
+
+Summary:
+On July 6, 2013, about 1128 Pacific daylight time, Asiana Airlines flight 214, a
+Boeing 777-200ER, crashed during a visual approach to runway 28L at San Francisco
+International Airport. The aircraft struck the seawall short of the runway, broke
+apart, and caught fire. Of the 307 people on board, 3 passengers were fatally injured;
+49 passengers and 2 flight attendants received serious injuries.
+
+Probable Cause:
+The NTSB determined that the probable cause was the flight crew's mismanagement of the
+airplane's descent during the visual approach, the pilot flying's unintentional
+deactivation of automatic airspeed control, the flight crew's inadequate monitoring of
+airspeed, and the flight crew's delayed execution of a go-around after they became
+aware that the airplane was below acceptable glidepath and airspeed tolerances.
+Contributing factors included the complexities of the autothrottle and autopilot flight
+director systems that were inadequately described in Boeing's documentation, and
+inadequate training on these systems by Asiana Airlines.
+
+Safety Recommendations:
+Recommendations included enhanced pilot training for manual flying skills, improved
+flight deck automation design standards, and better documentation of autoflight system
+behavior. The NTSB also recommended that EASA and the FAA require redesign of the
+Boeing 777 autothrottle to provide more intuitive mode annunciation.

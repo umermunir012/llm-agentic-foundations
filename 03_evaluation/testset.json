@@ -1,0 +1,50 @@
+[
+  {
+    "id": "q1",
+    "question": "What was the probable cause of the Colgan Air Flight 3407 crash?",
+    "expected_keywords": ["stick shaker", "aerodynamic stall", "captain", "airspeed"],
+    "expected_source": "incident_001.txt"
+  },
+  {
+    "id": "q2",
+    "question": "What safety recommendations came from the Asiana Airlines Flight 214 accident?",
+    "expected_keywords": ["manual flying", "autothrottle", "training", "automation"],
+    "expected_source": "incident_002.txt"
+  },
+  {
+    "id": "q3",
+    "question": "Why did Comair Flight 5191 crash in Lexington, Kentucky?",
+    "expected_keywords": ["wrong runway", "runway 26", "too short", "takeoff"],
+    "expected_source": "incident_003.txt"
+  },
+  {
+    "id": "q4",
+    "question": "What is the role of TCAS in preventing altitude deviations?",
+    "expected_keywords": ["resolution advisory", "altitude", "last line of defense"],
+    "expected_source": "incident_004.txt"
+  },
+  {
+    "id": "q5",
+    "question": "How many wildlife strikes are reported to the FAA annually?",
+    "expected_keywords": ["17,000", "bird", "strike", "database"],
+    "expected_source": "incident_005.txt"
+  },
+  {
+    "id": "q6",
+    "question": "What role did pilot fatigue play in the Colgan Air accident?",
+    "expected_keywords": ["fatigue", "colgan", "rest", "training"],
+    "expected_source": "incident_001.txt"
+  },
+  {
+    "id": "q7",
+    "question": "What are common wildlife strike mitigation strategies at airports?",
+    "expected_keywords": ["habitat modification", "harassment", "wildlife hazard assessment", "14 cfr"],
+    "expected_source": "incident_005.txt"
+  },
+  {
+    "id": "q8",
+    "question": "What contributed to cockpit task saturation in the ASRS altitude deviation report?",
+    "expected_keywords": ["atc", "workload", "heading changes", "fatigue", "descent"],
+    "expected_source": "incident_004.txt"
+  }
+]

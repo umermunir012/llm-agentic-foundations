@@ -1,0 +1,30 @@
+ASRS Report: ACN 1234567
+Date: March 2023
+Report Type: Air Carrier Captain Report
+
+Narrative:
+During descent into a busy Class B airport, ATC issued a series of rapid-fire
+amendments to our arrival routing. We were given three heading changes and two altitude
+changes within a span of about two minutes. During this high-workload period, we
+inadvertently descended through our assigned altitude by approximately 300 feet before
+the TCAS issued a Resolution Advisory (RA). We immediately followed the RA guidance and
+climbed back to our assigned altitude.
+
+Contributing Factors:
+- High ATC workload leading to rapid instruction changes
+- Cockpit task saturation during descent phase
+- Fatigue: both pilots had been on duty for approximately 11 hours
+- Unfamiliarity with the specific arrival procedure (recently modified STAR)
+
+Corrective Actions Taken:
+The crew filed this ASRS report. The airline reviewed the event and determined that
+additional CRM (Crew Resource Management) emphasis on task prioritization during
+high-workload phases would be addressed in recurrent training. The captain recommended
+that the airline update its approach briefing template to include a step for verifying
+familiarity with recently modified procedures.
+
+Lessons Learned:
+This event highlights the importance of maintaining altitude awareness even during
+periods of high ATC communication workload. The TCAS system functioned as designed
+and served as the last line of defense. Proactive altitude callouts by the pilot
+monitoring could have caught the deviation earlier.

@@ -1,0 +1,30 @@
+FAA Advisory Circular: AC 150/5200-32B
+Subject: Reporting Wildlife Aircraft Strikes
+
+Purpose:
+This advisory circular provides guidance on reporting wildlife strikes to the FAA.
+Wildlife strikes pose a significant safety hazard to aircraft operations. The FAA
+National Wildlife Strike Database contains records dating back to 1990 and receives
+approximately 17,000 strike reports annually.
+
+Reporting Requirements:
+Pilots, airport operators, engine manufacturers, and aircraft maintenance personnel
+are encouraged to report all wildlife strikes using FAA Form 5200-7 (Bird/Other
+Wildlife Strike Report). Reports should be filed within 24 hours of the event through
+the FAA Wildlife Strike Database online portal.
+
+Key Statistics:
+- Over 300,000 wildlife strikes have been reported to the FAA since 1990
+- Bird strikes account for approximately 97% of reported wildlife strikes
+- Deer and coyotes are the most commonly struck mammals on airport surfaces
+- The estimated annual cost of wildlife strikes to US civil aviation exceeds $900 million
+- Engines are the aircraft component most frequently damaged by bird strikes
+- The US Airways Flight 1549 "Miracle on the Hudson" in 2009 was caused by a dual
+  engine ingestion of Canada geese at approximately 2,800 feet AGL
+
+Mitigation Strategies:
+Airports are required to conduct wildlife hazard assessments (WHA) under 14 CFR Part
+139. Common mitigation strategies include habitat modification, wildlife harassment
+and dispersal programs, and coordination with local wildlife management agencies.
+The FAA recommends that airports within the approach and departure corridors maintain
+environments that do not attract hazardous wildlife.
