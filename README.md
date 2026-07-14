@@ -10,20 +10,21 @@ the system queries a corpus of aviation safety documents including ntsb accident
  ollama installed locally
  internet access only required for the live weather tool api
 
- **setup  installation**
+ **SETUP INSTALLATIONS**
 
 **1 install ollama and pull the necessary models**
-bash
-ollama pull llama323b
-ollama pull llama321b
+- bash
+- ollama pull llama323b
+- ollama pull llama321b
 
 **2 install python dependencies**
-bash
-pip install r requirementstxt
+- bash
+- pip install r requirementstxt
 
 **3 ingest the documents and build the index run this before any other scripts**
-bash
-python 02ragprototypeingestpy
+
+- bash
+- python 02ragprototypeingestpy
 
  note ingestpy chunks the 5 aviation documents and builds the initial search index if you skip this the other scripts will have nothing to search
 
@@ -31,34 +32,38 @@ python 02ragprototypeingestpy
 
 expect 1020 seconds per query on a cpuonly setup and a few minutes for the full evaluation
 
-**1 rag queries**
-bash
-python 02ragprototypequerypy what caused the colgan air crash
+**1 RAG QUIRIES**
 
-**2 agentic queries**
-bash
- tests rag and calculator tools in sequence
-python 04agenticagentpy how many wildlife strikes happen per year and what is that per day
+- bash
+- python 02ragprototypequerypy what caused the colgan air crash
 
-tests live api tool
+**2 AGENTIC QURIES**
+
+
+- bash
+ - tests rag and calculator tools in sequence
+- python 04agenticagentpy how many wildlife strikes happen per year and what is that per day
+
+**TESTS LIVE API TOOLS**
+
 python 04agenticagentpy what is the current weather at the airport where asiana 214 crashed
 
-**3 evaluations**
-bash
-python 01promptengineeringevaluatepromptspy
-python 03evaluationevalpy
+**3 EVALUATIONS**
 
- outputs from recent runs are saved in resultsmd metricsmd and tracesmd see 04agentictracesmd for full agent execution traces
 
- architecture  insights
+- bash
+- python 01promptengineeringevaluatepromptspy
+- python 03evaluationevalpy
+ - outputs from recent runs are saved in resultsmd metricsmd and tracesmd see 04agentictracesmd for full agent execution traces
 
- the agent
+**architecture  insights**
+
 the agent runs on a handrolled react loop 150 lines rather than a framework like langchain this provides full visibility into the agentic loop and handles parsefailures directly when small models emit malformed action lines 
 
 **TOOLS PROVIDED**
-1 rag lookup over the aviation documents
-2 calculator
-3 live metar weather api
+- rag lookup over the aviation documents
+- calculator
+- live metar weather api
 
  **PROMT ENGINEERING EVALUATION**
 tested on llama 32 3b rolebased prompting performed best while chainofthought cot doubled latency and token counts for negligible gain
@@ -71,6 +76,7 @@ tested on llama 32 3b rolebased prompting performed best while chainofthought co
  rolebased  056  2193s  363 
 
 **MODEL PERFORMANCE EVALUATION**
+
 the 1b model is the most sensible choice for this specific corpus upgrading to 3b yields only a 005 relevance increase while increasing latency by 40 the 1b model utilizes slightly more tokens as it tends to be more verbose
 
 **MODEL HITRATE RELEVANCY TOKENS**
