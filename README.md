@@ -1,124 +1,97 @@
-# LLM Customization & Agentic AI Foundations
+**llm customization  agentic ai foundations**
 
-A hands-on repository demonstrating core LLM application patterns applied to **aviation safety incident reports**: prompt engineering, retrieval-augmented generation (RAG), evaluation, and agentic AI.
+this repository contains a local cpuonly implementation of prompt engineering retrievalaugmented generation rag model evaluation and a toolusing ai agent it is built entirely on ollama requiring no api keys no cloud dependencies and zero cost 
 
-Runs **fully local** using [Ollama](https://ollama.com) -- no API keys or cloud costs required.
+the system queries a corpus of aviation safety documents including ntsb accident reports asrs incident reports and faa wildlife strike guidance
 
-## Repository Structure
+** requirements**
 
-```
-.
-├── README.md                          # This file
-├── requirements.txt                   # Python dependencies
-├── .env.example                       # Environment variable template
-├── config.py                          # Shared configuration
-├── llm.py                            # Ollama API wrapper
-├── vector_store.py                   # TF-IDF vector store (no external deps)
-├── 01_prompt_engineering/
-│   ├── prompts.py                     # 4 prompt strategies (zero-shot, few-shot, CoT, role-based)
-│   ├── evaluate_prompts.py            # Score all strategies on a shared test set
-│   └── results.md                     # Results table with measured data
-├── 02_rag_prototype/
-│   ├── ingest.py                      # Chunk -> index -> store in vector_store.json
-│   ├── query.py                       # Retrieve -> generate answer
-│   ├── data/                          # Sample NTSB/ASRS/FAA documents (5 reports)
-│   └── notes.md                       # Design decisions & rationale
-├── 03_evaluation/
-│   ├── eval.py                        # Retrieval hit rate, relevance, latency, tokens
-│   ├── testset.json                   # 8 test questions with expected keywords/sources
-│   └── metrics.md                     # Results tables with measured data
-├── 04_agentic/
-│   ├── tools.py                       # 3 tools: calculator, RAG lookup, METAR weather API
-│   ├── agent.py                       # Hand-rolled ReAct loop (no LangChain)
-│   └── traces.md                      # Agent trace outputs from real runs
-└── docs/
-    └── cost_performance.md            # Cost estimates and performance notes
-```
+ python 311 python 314 works but see limitations below
+ ollama installed locally
+ internet access only required for the live weather tool api
 
-## Quick Start
+ **setup  installation**
 
-### 1. Prerequisites
+**1 install ollama and pull the necessary models**
+bash
+ollama pull llama323b
+ollama pull llama321b
 
-Install [Ollama](https://ollama.com) and pull models:
+**2 install python dependencies**
+bash
+pip install r requirementstxt
 
-```bash
-ollama pull llama3.2:3b
-ollama pull llama3.2:1b
-```
+**3 ingest the documents and build the index run this before any other scripts**
+bash
+python 02ragprototypeingestpy
 
-### 2. Setup
+ note ingestpy chunks the 5 aviation documents and builds the initial search index if you skip this the other scripts will have nothing to search
 
-```bash
-pip install -r requirements.txt
-cp .env.example .env
-```
+** running the code**
 
-### 3. Ingest Documents
+expect 1020 seconds per query on a cpuonly setup and a few minutes for the full evaluation
 
-```bash
-python 02_rag_prototype/ingest.py
-```
+**1 rag queries**
+bash
+python 02ragprototypequerypy what caused the colgan air crash
 
-This chunks the 5 sample aviation reports and indexes them in `vector_store.json` using TF-IDF.
+**2 agentic queries**
+bash
+ tests rag and calculator tools in sequence
+python 04agenticagentpy how many wildlife strikes happen per year and what is that per day
 
-### 4. Run Each Module
+tests live api tool
+python 04agenticagentpy what is the current weather at the airport where asiana 214 crashed
 
-```bash
-# Prompt engineering evaluation
-python 01_prompt_engineering/evaluate_prompts.py
+**3 evaluations**
+bash
+python 01promptengineeringevaluatepromptspy
+python 03evaluationevalpy
 
-# RAG query (interactive)
-python 02_rag_prototype/query.py "What caused the Colgan Air crash?"
+ outputs from recent runs are saved in resultsmd metricsmd and tracesmd see 04agentictracesmd for full agent execution traces
 
-# Full evaluation (compares llama3.2:3b vs llama3.2:1b)
-python 03_evaluation/eval.py
+ architecture  insights
 
-# Agentic ReAct loop
-python 04_agentic/agent.py "How many wildlife strikes happen per year and what is that per day?"
-python 04_agentic/agent.py "What is the current weather at the airport where Asiana 214 crashed?"
-```
+ the agent
+the agent runs on a handrolled react loop 150 lines rather than a framework like langchain this provides full visibility into the agentic loop and handles parsefailures directly when small models emit malformed action lines 
 
-### 5. View Results
+**tools provided**
+1 rag lookup over the aviation documents
+2 calculator
+3 live metar weather api
 
-Results from a real run are already recorded in `results.md`, `metrics.md`, and `traces.md`. Re-run the scripts to regenerate with your own hardware.
+ **prompt engineering evaluation**
+tested on llama 32 3b rolebased prompting performed best while chainofthought cot doubled latency and token counts for negligible gain
 
-## Configuration
+ ** strategy  relevance  latency  tokens **
+        
+ zeroshot  023  1071s  165 
+ fewshot  049  901s  269 
+ chainofthought  050  2223s  361 
+ rolebased  056  2193s  363 
 
-All defaults are configurable via environment variables (see `.env.example`):
+** model performance comparison**
+the 1b model is the most sensible choice for this specific corpus upgrading to 3b yields only a 005 relevance increase while increasing latency by 40 the 1b model utilizes slightly more tokens as it tends to be more verbose
 
-| Variable | Default | Purpose |
-|----------|---------|---------|
-| `LLM_MODEL` | `llama3.2:3b` | Primary LLM model |
-| `LLM_MODEL_ALT` | `llama3.2:1b` | Comparison model for evaluation |
-| `OLLAMA_BASE_URL` | `http://localhost:11434` | Ollama server address |
-| `CHUNK_SIZE` | `512` | Characters per chunk |
-| `CHUNK_OVERLAP` | `64` | Character overlap between chunks |
+** model  hit rate  relevance  latency  tokens **
+          
+ llama323b  100  058  135s  479 
+ llama321b  100  053  95s  492 
 
-## Domain: Aviation Safety
+ **configuration**
 
-The sample data includes:
-- **NTSB accident reports**: Colgan Air 3407, Asiana 214, Comair 5191
-- **ASRS voluntary report**: altitude deviation incident
-- **FAA advisory circular**: wildlife strike reporting guidance
+all tunable parameters are managed via configpy or a env file
 
-## Design Decisions
+** variable  default  purpose **
+      
+ llmmodel  llama323b  main model used for queriesagent 
+ llmmodelalt  llama321b  comparison model for evaluation 
+ ollamabaseurl  httplocalhost11434  ollama server address 
+ chunksize  512  characters per document chunk 
+ chunkoverlap  64  character overlap between chunks 
 
-See [02_rag_prototype/notes.md](02_rag_prototype/notes.md) for RAG parameter rationale and [docs/cost_performance.md](docs/cost_performance.md) for cost analysis.
+** known limitations  future work**
 
-### Why hand-rolled ReAct instead of LangChain?
-
-The agent in `04_agentic/` implements the ReAct (Reasoning + Acting) pattern from scratch:
-1. **Transparency**: every step is visible in the trace -- no framework magic
-2. **Debuggability**: you can see exactly what prompt the LLM receives at each step
-3. **Simplicity**: ~150 lines of Python, no dependency graph to learn
-4. **Educational value**: understanding the loop matters more than framework fluency
-
-### Why TF-IDF instead of vector embeddings?
-
-For a small corpus (5 documents, 20 chunks), TF-IDF with cosine similarity provides effective retrieval with zero dependencies and no API calls. For production or larger corpora, swap in ChromaDB or FAISS with proper embedding models.
-
-## Requirements
-
-- Python 3.11+
-- [Ollama](https://ollama.com) with at least one model pulled
-- Internet access (only for the METAR weather tool in the agent)
+ tfidf vs vector db retrieval is currently performed using tfidf keyword matching instead of a vector db this was implemented to avoid dependency conflicts as chromadb lacks python 314 wheels
+ artificially high hit rate because the current test questions share obvious keywords with the source documents tfidf achieves a perfect 100 hit rate paraphrased questions would likely fail under this setup
+ next steps the upcoming phase will focus on embedding optimization this requires migrating to a python 312 virtual environment swapping tfidf for chromadb and implementing the allminilml6v2 embedding model to capture semantic meaning rather than just keywords it will also involve finetuning the chunksize and chunkoverlap values
